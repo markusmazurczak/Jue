@@ -158,6 +158,22 @@ public class HueBridge {
 		
 		handleErrors(result);
 	}
+
+    /**
+     * Start searching for new lights with given serial numbers for 1 minute.
+     * A maximum amount of 15 new lights will be added.
+     * @param serialNumbers list of serial numbers
+     * @throws UnauthorizedException thrown if the user no longer exists
+     */
+    public void startSearch(List<String> serialNumbers) throws IOException, ApiException {
+        requireAuthentication();
+
+        String body = gson.toJson(new SearchForLightsRequest(serialNumbers));
+        Result result = http.post(getRelativeURL("lights"), body);
+
+        handleErrors(result);
+    }
+
 	
 	/**
 	 * Returns detailed information for the given light.
