@@ -53,11 +53,11 @@ public class StateUpdate {
 	/**
 	 * Set brightness of light.
 	 * Brightness 0 is not the same as off.
-	 * @param brightness brightness [1..255]
+	 * @param brightness brightness [1..254]
 	 * @return this object for chaining calls
 	 */
 	public StateUpdate setBrightness(int brightness) {
-		if (brightness < 0 || brightness > 255) {
+		if (brightness < 1 || brightness > 254) {
 			throw new IllegalArgumentException("Brightness out of range");
 		}
 		
@@ -81,11 +81,11 @@ public class StateUpdate {
 	
 	/**
 	 * Switch to HS color mode and set saturation.
-	 * @param saturation saturation [0..255]
+	 * @param saturation saturation [0..254]
 	 * @return this object for chaining calls
 	 */
 	public StateUpdate setSat(int saturation) {
-		if (saturation < 0 || saturation > 255) {
+		if (saturation < 0 || saturation > 254) {
 			throw new IllegalArgumentException("Saturation out of range");
 		}
 		

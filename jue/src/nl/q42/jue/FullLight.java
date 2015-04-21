@@ -8,6 +8,7 @@ public class FullLight extends Light {
 	private String type;
 	private String modelid;
 	private String swversion;
+	private String uniqueid;
 	
 	FullLight() {}
 	
@@ -42,4 +43,14 @@ public class FullLight extends Light {
 	public String getSoftwareVersion() {
 		return swversion;
 	}
+	
+    /**
+     * Returns the unique id of the light. The unique is the MAC address of the device with a unique endpoint id in the
+     * form: AA:BB:CC:DD:EE:FF:00:11-XX
+     * 
+     * @return the unique id
+     */
+    public String getUniqueID() {
+        return uniqueid;
+    }
 }
